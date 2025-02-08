@@ -38,3 +38,17 @@ If our event bus retains past events (like Kafka does with its log retention), w
 **Downside:** Needs event retention in Kafka/Kinesis.  
 
 ---
+
+### 2. If We Have Stateful Processing → Restore from Checkpoints  
+
+If the system is built using Apache Flink, Spark Streaming, or Kafka Streams, it’s possible to restore data from state checkpoints instead of replaying raw events.  
+
+#### How?  
+- Maintain stateful processing with regular snapshots.  
+- When events go missing, roll back to the last valid checkpoint and reprocess only the affected data.  
+
+#### Code snippet: Flink Checkpointing for Recovery  
+**Best For:** Systems with stateful stream processing (Flink, Spark).  
+**Downside:** Requires infrastructure for checkpointing.  
+
+---
