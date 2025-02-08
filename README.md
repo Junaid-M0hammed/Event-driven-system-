@@ -67,3 +67,11 @@ Sometimes, logs are gone, and checkpoints don’t exist. In that case, we need t
 | **Replay Events (Kafka)** | Logs exist | Fully accurate, scalable | Requires event retention |
 | **Restore from Checkpoints (Flink/Spark)** | Stateful processing | Fast, real-time correction | Infra complexity |
 | **Approximation (ML/BI)** | No logs available | Works without logs | Less accurate |
+
+When handling millions of events per hour, recovery must be fast and scalable.  
+
+- Kafka partitioning ensures we can process different event groups in parallel.  
+- Stream processing (Flink/Spark/Kafka Streams) helps detect and fix errors in real-time.  
+- Monitoring & alerting (Prometheus, Grafana) can help catch missing events before they become a problem.  
+
+---
