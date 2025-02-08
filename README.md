@@ -33,7 +33,8 @@ If our event bus retains past events (like Kafka does with its log retention), w
 - Use Kafka’s `seek()` function (or similar for other message buses) to reprocess only the necessary events.  
 - Ensure idempotent processing so we don’t accidentally double-count any event.  
 
-#### Code snippet: Kafka Replay in Python  
+#### [Code snippet: Kafka Replay in Python](https://github.com/Junaid-M0hammed/Event-driven-system-/blob/main/_Kafka%20Replay.ipynb) 
+
 **Best For:** Systems where event logs exist and retention is enabled.  
 **Downside:** Needs event retention in Kafka/Kinesis.  
 
