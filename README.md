@@ -48,7 +48,7 @@ If the system is built using Apache Flink, Spark Streaming, or Kafka Streams, it
 - Maintain stateful processing with regular snapshots.  
 - When events go missing, roll back to the last valid checkpoint and reprocess only the affected data.  
 
-#### Code snippet: Flink Checkpointing for Recovery  
+#### [Code snippet: Flink Checkpointing for Recovery](https://github.com/Junaid-M0hammed/Event-driven-system-/blob/main/_Flink_Checkpointing.ipynb)  
 **Best For:** Systems with stateful stream processing (Flink, Spark).  
 **Downside:** Requires infrastructure for checkpointing.  
 
@@ -58,7 +58,7 @@ If the system is built using Apache Flink, Spark Streaming, or Kafka Streams, it
 
 Sometimes, logs are gone, and checkpoints don’t exist. In that case, we need to rebuild the missing values based on what we do have—reports, API data, or raw logs from monitoring tools.  
 
-#### Code snippet: Interpolating Missing Data in Python  
+#### [Code snippet: Interpolating Missing Data in Python](https://github.com/Junaid-M0hammed/Event-driven-system-/blob/main/Interpolating.ipynb)  
 **Best For:** When no raw event logs exist.  
 **Downside:** Less accurate than actual event replay.  
 
