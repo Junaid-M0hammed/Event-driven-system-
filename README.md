@@ -52,3 +52,18 @@ If the system is built using Apache Flink, Spark Streaming, or Kafka Streams, it
 **Downside:** Requires infrastructure for checkpointing.  
 
 ---
+
+### 3. If No Logs Exist → Infer Missing Data from Downstream Sources  
+
+Sometimes, logs are gone, and checkpoints don’t exist. In that case, we need to rebuild the missing values based on what we do have—reports, API data, or raw logs from monitoring tools.  
+
+#### Code snippet: Interpolating Missing Data in Python  
+**Best For:** When no raw event logs exist.  
+**Downside:** Less accurate than actual event replay.  
+
+### Summary of My Approach
+| **Approach**             | **When to Use** | **Advantages** | **Trade-offs** |
+|-------------------------|---------------|----------------|---------------|
+| **Replay Events (Kafka)** | Logs exist | Fully accurate, scalable | Requires event retention |
+| **Restore from Checkpoints (Flink/Spark)** | Stateful processing | Fast, real-time correction | Infra complexity |
+| **Approximation (ML/BI)** | No logs available | Works without logs | Less accurate |
